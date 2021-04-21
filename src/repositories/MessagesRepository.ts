@@ -1,7 +1,7 @@
 import { EntityRepository, Repository } from "typeorm";
-import { Message } from "../entities/Message";
+import { Messages } from "../entities/Messages";
 
-@EntityRepository(Message)
-class MessagesRepository extends Repository<Message> {}
+@EntityRepository(Messages)
+class MessagesRepository extends Repository<Messages> {}
 
 export { MessagesRepository };

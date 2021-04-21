@@ -1,23 +1,28 @@
-import { getCustomRepository } from "typeorm";
+import { getCustomRepository, Repository } from "typeorm";
+import { Messages } from "../entities/Messages";
 import { MessagesRepository } from "../repositories/MessagesRepository";
 
 interface IMessageCreate {
-  admin_id: string;
+  admin_id?: string;
   text: string;
   user_id: string;
 }
 
 class MessagesService {
-  async create({ admin_id, text, user_id }: IMessageCreate) {
-    const messsageRepository = getCustomRepository(MessagesRepository);
+  private messagesRepository: Repository<Messages>;
 
-    const message = messsageRepository.create({
+  constructor() {
+    this.messagesRepository = getCustomRepository(MessagesRepository);
+  }
+
+  async create({ admin_id, text, user_id }: IMessageCreate) {
+    const message = this.messagesRepository.create({
       admin_id,
       text,
       user_id,
     });
 
-    await messsageRepository.save(message);
+    await this.messagesRepository.save(message);
 
     return message;
   }

@@ -1,16 +1,16 @@
 import {
-  Entity,
-  PrimaryColumn,
-  CreateDateColumn,
   Column,
-  ManyToOne,
+  CreateDateColumn,
+  Entity,
   JoinColumn,
+  ManyToOne,
+  PrimaryColumn,
 } from "typeorm";
 import { v4 as uuid } from "uuid";
 import { User } from "./User";
 
 @Entity("messages")
-class Message {
+class Messages {
   @PrimaryColumn()
   id: string;
 
@@ -37,4 +37,4 @@ class Message {
   }
 }
 
-export { Message };
+export { Messages };
