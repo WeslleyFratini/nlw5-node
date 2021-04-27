@@ -1,5 +1,5 @@
 import { getCustomRepository, Repository } from "typeorm";
-import { Setting } from "../entities/Setting";
+import { Setting } from "../entities/Settings";
 import { SettingsRepository } from "../repositories/SettingsRepository";
 
 interface ISettingsCreate {
